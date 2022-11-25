@@ -9,10 +9,10 @@ public class Book {
         this.author = author;
     }
     public String getName() {
-        return this.name;
+        return name;
     }
     public int getYearPublication() {
-        return this.yearPublication;
+        return yearPublication;
     }
     public void setYearPublication(int yearPublication) {
         this.yearPublication = yearPublication;
@@ -21,18 +21,22 @@ public class Book {
         return author;
     }
     @Override
-    public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
+    public String toString() {
+        return "Название книги: " + name + "\nГод публикации: " + yearPublication + "\n" + author;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Book book2 = (Book) other;
-        return name.equals(book2.name);
+        Book book = (Book) o;
+        return yearPublication == book.yearPublication && Objects.equals(name, book.name) && Objects.equals(author, book.author);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(name);
-    }
-    public String toString() {
-        return "Название книги: " + this.name + "\nГод публикации: " + this.yearPublication + "\n" + this.author;
+        return Objects.hash(name, yearPublication, author);
     }
 }

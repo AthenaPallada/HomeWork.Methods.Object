@@ -10,6 +10,5 @@ public class Main {
         System.out.println(book2);
         System.out.println(book1.equals(book2));
         System.out.println(gaiman.equals(carroll));
-        System.out.println(gaiman.equals(book2));
     }
 }
